@@ -31,8 +31,145 @@ contact_messages_table = dynamodb.Table('BeautySalon_ContactMessages')
 # Email settings
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
-SENDER_EMAIL = "youremail@gmail.com"  # Update with your email
-SENDER_PASSWORD = "your_app_password"  # Update with your app password
+SENDER_EMAIL = "gtharunasri19@gmail.com"  # Update with your email
+SENDER_PASSWORD = "umpb bimb pahp axmc"  # Update with your app password
+
+# Sample Beautician Data
+beautician_data = [
+    {
+        'beautician_id': '1a2b3c4d-5e6f-7g8h-9i0j-1k2l3m4n5o6p',
+        'name': 'Emma Johnson',
+        'email': 'emma.johnson@glowbeauty.com',
+        'specialty': 'Hair Styling & Coloring',
+        'qualification': 'Certified Color Specialist, Advanced Hair Cutting',
+        'experience': '8 years',
+        'bio': 'Emma specializes in creating personalized hair color and styles that enhance your natural beauty. With an eye for detail and a passion for keeping up with the latest trends, she ensures every client leaves feeling confident and beautiful.',
+        'phone': '555-123-4567',
+        'available': True,
+        'working_hours': '9:00 AM - 5:00 PM',
+        'working_days': ['Monday', 'Tuesday', 'Wednesday', 'Friday', 'Saturday'],
+        'languages': ['English', 'Spanish'],
+        'photo_url': '/static/images/beauticians/emma_johnson.jpg',
+        'rating': 4.9,
+        'created_at': '2023-05-15 09:00:00'
+    },
+    {
+        'beautician_id': '2b3c4d5e-6f7g-8h9i-0j1k-2l3m4n5o6p7q',
+        'name': 'Sophia Martinez',
+        'email': 'sophia.martinez@glowbeauty.com',
+        'specialty': 'Skincare & Facials',
+        'qualification': 'Licensed Esthetician, Certified in Advanced Facial Techniques',
+        'experience': '6 years',
+        'bio': 'Sophia is passionate about helping clients achieve their best skin. She specializes in personalized facial treatments and has extensive knowledge of skincare products and routines for all skin types and concerns.',
+        'phone': '555-234-5678',
+        'available': True,
+        'working_hours': '10:00 AM - 6:00 PM',
+        'working_days': ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sunday'],
+        'languages': ['English', 'Spanish', 'Portuguese'],
+        'photo_url': '/static/images/beauticians/sophia_martinez.jpg',
+        'rating': 4.8,
+        'created_at': '2023-06-20 10:00:00'
+    },
+    {
+        'beautician_id': '3c4d5e6f-7g8h-9i0j-1k2l-3m4n5o6p7q8r',
+        'name': 'James Wilson',
+        'email': 'james.wilson@glowbeauty.com',
+        'specialty': 'Men\'s Grooming & Beard Care',
+        'qualification': 'Master Barber, Certified in Advanced Beard Styling',
+        'experience': '10 years',
+        'bio': 'James brings a decade of experience in men\'s grooming and styling. He specializes in precision haircuts, beard styling, and traditional hot towel shaves. His attention to detail ensures every client receives a personalized experience.',
+        'phone': '555-345-6789',
+        'available': True,
+        'working_hours': '11:00 AM - 7:00 PM',
+        'working_days': ['Monday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        'languages': ['English'],
+        'photo_url': '/static/images/beauticians/james_wilson.jpg',
+        'rating': 4.9,
+        'created_at': '2022-12-10 11:00:00'
+    },
+    {
+        'beautician_id': '4d5e6f7g-8h9i-0j1k-2l3m-4n5o6p7q8r9s',
+        'name': 'Olivia Chen',
+        'email': 'olivia.chen@glowbeauty.com',
+        'specialty': 'Nail Art & Manicures',
+        'qualification': 'Certified Nail Technician, Specialized in Nail Art',
+        'experience': '5 years',
+        'bio': 'Olivia is known for her creative nail designs and meticulous attention to detail. Whether you want a classic manicure or elaborate nail art, she brings creativity and precision to every appointment.',
+        'phone': '555-456-7890',
+        'available': True,
+        'working_hours': '9:00 AM - 5:00 PM',
+        'working_days': ['Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        'languages': ['English', 'Mandarin'],
+        'photo_url': '/static/images/beauticians/olivia_chen.jpg',
+        'rating': 4.7,
+        'created_at': '2024-01-05 09:00:00'
+    },
+    {
+        'beautician_id': '5e6f7g8h-9i0j-1k2l-3m4n-5o6p7q8r9s0t',
+        'name': 'Aisha Patel',
+        'email': 'aisha.patel@glowbeauty.com',
+        'specialty': 'Makeup & Bridal Services',
+        'qualification': 'Professional Makeup Artist, Bridal Specialist',
+        'experience': '7 years',
+        'bio': 'Aisha specializes in creating flawless makeup looks for all occasions, with particular expertise in bridal makeup. She believes in enhancing natural beauty and creating looks that make her clients feel confident and radiant.',
+        'phone': '555-567-8901',
+        'available': True,
+        'working_hours': '10:00 AM - 6:00 PM',
+        'working_days': ['Monday', 'Tuesday', 'Friday', 'Saturday', 'Sunday'],
+        'languages': ['English', 'Hindi', 'Gujarati'],
+        'photo_url': '/static/images/beauticians/aisha_patel.jpg',
+        'rating': 5.0,
+        'created_at': '2023-08-20 10:00:00'
+    },
+    {
+        'beautician_id': '6f7g8h9i-0j1k-2l3m-4n5o-6p7q8r9s0t1u',
+        'name': 'Michael Brown',
+        'email': 'michael.brown@glowbeauty.com',
+        'specialty': 'Massage Therapy',
+        'qualification': 'Licensed Massage Therapist, Specialized in Deep Tissue and Hot Stone Massage',
+        'experience': '9 years',
+        'bio': 'Michael provides therapeutic massage treatments tailored to each client's needs. Whether you need stress relief or help with muscle tension, his skilled techniques will leave you feeling relaxed and rejuvenated.',
+        'phone': '555-678-9012',
+        'available': True,
+        'working_hours': '12:00 PM - 8:00 PM',
+        'working_days': ['Tuesday', 'Wednesday', 'Thursday', 'Saturday', 'Sunday'],
+        'languages': ['English', 'French'],
+        'photo_url': '/static/images/beauticians/michael_brown.jpg',
+        'rating': 4.9,
+        'created_at': '2023-03-15 12:00:00'
+    }
+]
+
+# Function to initialize beautician data in DynamoDB
+def initialize_beautician_data():
+    try:
+        # Check if beauticians exist
+        response = beauticians_table.scan(Limit=1)
+        if 'Items' in response and len(response['Items']) > 0:
+            print("Beautician data already exists, skipping initialization")
+            return
+        
+        # Add sample beauticians to DynamoDB
+        for beautician in beautician_data:
+            beauticians_table.put_item(Item=beautician)
+            
+            # Create user accounts for beauticians with a default password
+            hashed_password = hashpw("BeautyPro2025!".encode('utf-8'), gensalt()).decode('utf-8')
+            users_table.put_item(
+                Item={
+                    'email': beautician['email'],
+                    'name': beautician['name'],
+                    'password': hashed_password,
+                    'phone': beautician['phone'],
+                    'user_type': 'beautician',
+                    'registration_date': beautician['created_at']
+                }
+            )
+        
+        print("Sample beautician data initialized successfully")
+    except Exception as e:
+        print(f"Error initializing beautician data: {e}")
+
 
 # Beauty tips data
 beauty_tips = [
